@@ -1,0 +1,28 @@
+
+###END point principal
+GET http://localhost:2525/games
+Content-Type: application/json
+
+###END point por géneros
+GET http://localhost:2525/games?category=Shooter
+
+###MMORPG
+GET http://localhost:2525/games?category=MMORPG
+
+Content-Type: application/json
+
+###anime
+GET http://localhost:2525/anime?category=anime
+Content-Type: application/json
+###sci-fi
+GET http://localhost:2525/sci-fi?category=sci-fi
+###release date
+GET http://localhost:2525/release?sort-by=&sort-by=release-date
+Content-Type: application/json
+
+##Mas populares
+
+GET http://localhost:2525/popularity?sort-by=&sort-by=popularity
+Content-Type: application/json
+
+

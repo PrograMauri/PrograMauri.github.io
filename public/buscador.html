@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script type="module">
+        fetch('http://localhost:2525/games')
+        .then(res => res.json())
+        .then(data =>{
+    
+            var gamesUno = data
+            console.log(data.length)
+            function generatorUno(max){
+              return Math.floor(Math.random()*max)
+            }
+           let valor = generatorUno(data.length)
+
+           function generatorDos(max){
+              return Math.floor(Math.random()*max)
+            }
+            let valor2= generatorDos(data.length)
+
+            function generatorTres(max){
+              return Math.floor(Math.random()*max)
+            }
+
+            let valor3 = generatorTres(data.length)
+            var gamesDos = data[valor]
+
+            gamesDos = `
+            <article>
+                    <a href="${gamesDos.game_url}">
+                    <img src="${gamesDos.thumbnail}" alt="${gamesDos.title}"> </img>
+                        <p class="free-text">FREE</p>
+                </article>
+                </a>
+            
+            `
+            var gamesTres = data[valor2]
+
+                 gamesTres = `
+                <article>
+                 <a href="${gamesTres.game_url}">
+                     <img src="${gamesTres.thumbnail}" alt="${gamesTres.title}"> </img>
+                     <p class="free-text-2">FREE</p>
+                         </article>
+                         </a>
+
+                `
+                var gamesCuatro = data[valor3]
+
+                 gamesCuatro = `
+                <article>
+                 <a href="${gamesCuatro.game_url}">
+                     <img src="${gamesCuatro.thumbnail}" alt="${gamesCuatro.title}"> </img>
+                     <p class="free-text-3">FREE</p>
+                         </article>
+                         </a>
+
+                `
+    
+
+            document.querySelector('.img-g').innerHTML = gamesDos
+            document.querySelector('.img-gg').innerHTML = gamesTres
+            document.querySelector('.img-ggg').innerHTML = gamesCuatro
+            
+        })
+
+
+        fetch('http://localhost:2525/games')
+        .then(res => res.json())
+        .then(data =>{
+            var html = data.map(data =>{
+                return html = `
+                  <article class="articulos">
+                    <a href="${data.game_url}">
+                    <img src="${data.thumbnail}" alt="${data.title}"> </img>
+                    <h2 class="title-img-g">${data.title}</h2> 
+                    </a>
+                </article>
+                
+                `
+                
+            }) 
+
+            document.querySelector('.genres-img').innerHTML= html
+                
+           
+        })
+
+       document.addEventListener('keyup',e =>{
+            if(e.target.matches('.search-input')){
+                document.querySelectorAll('.articulos').forEach(game =>{
+                   game.textContent.toLocaleLowerCase().includes(e.target.value)
+                   ? game.classList.remove('filtro')
+                   : game.classList.add('filtro')
+                })
+            }
+        })
+
+       
+
+
+        const menu = document.getElementById('menu')
+
+menu.addEventListener('click',()=>{
+   document.getElementById('sidebar').classList.toggle('activo')
+})
+
+ </script>
+</head>
+<body>
+    <div class="navegacion">
+        <nav>
+            <div class="movil-display">
+                <a href="index.html"><img class="img-of" src="src/freetogame-logo.png"></a>
+                <img id="menu" src="src/menu.png" height="40px">
+            </div>
+            <div id="sidebar">
+            <div class="position">
+            <ul>
+                <li>
+                    <a href="siteGames.html">Free Games</a>
+                </li>
+                <li><a href="https://www.freetogame.com/api-doc">Api</a></li>
+                <li class="svg"><a href="#"><svg  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/></svg></a></li>
+                <li><a class="search-sidebar" href="buscador.html"><img class="search-i"  src="src/search.png" width="20px" height="17px" ><span>Search</span></a></li>
+            </ul>
+            </div>
+            </div>
+            <ul class="menu-horizontal">
+               <a href="index.html"><img src="src/freetogame-logo.png"></a> 
+                <li class="li-o">
+                    <a class="toggle" href="siteGames.html">Free Games</a>
+                    <ul class="menu-vertical">
+                        <li><a href="mmorpg.html">MMORPG</a></li>
+                        <li><a href="shooter.html">Shooter</a></li>
+                        <li><a href="moba.html">MOBA</a></li>
+                        <li><a href="anime.html">Anime</a></li>
+                        <li><a href="BattleRoyale.html">Battle royale</a></li>
+                        <li><a href="strategy.html">Strategy</a></li>
+                        <li><a href="fantasy.html">Fantasy</a></li>
+                        <li><a href="Sci-Fi.html">Sci-Fi</a></li>
+                        <li><a href="Card.html">Card Games</a></li>
+                        <li><a href="Fighting.html">Fighting</a></li>
+                        <li><a href="Social.html">Social</a></li>
+                        <li><a href="Sports.html">Sports</a></li>
+                        <li class="last"><a  href="siteGames.html">Free-To-Play-Games</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://www.freetogame.com/api-doc">Api</a></li>
+                <li><a class="search" href="buscador.html"><img  src="src/search.png" height="30px" ></a></li>
+            </ul>
+        </nav>
+    </div>
+<div class="section-search">
+<div class="search-p">
+   <img src="./src/search-g.png" height="42px"><h1>Buscar Juegos </h1>
+</div>
+
+
+<input class="search-input" type="text" placeholder="Buscar juegos...">
+
+</div>
+    <div class="seccion">
+        <h1 class="p-h">Te pueden gustar</h1>
+        <div class="s-grid">
+            <div class="img-g">
+             </div>
+            <div class="img-gg">
+             </div>
+            <div class="img-ggg">
+             </div>
+    </div>
+    <div class="genres-img">
+
+    </div>
+</body>
+</html>

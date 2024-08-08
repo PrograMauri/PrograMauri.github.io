@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free to play games API</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script type="module">
+        /*
+       
+        fetch('http://localhost:2525/games')
+        .then(res =>res.json())
+        .then(games =>{
+            const html = games.map(game =>{
+                return `
+                <article data-id="${game.id}"> 
+                    <h2>${game.title} </h2>
+                    <img src="${game.thumbnail}" alt="${game.title}"> </img>
+                </article>`
+            }).join('')
+
+            document.querySelector('main').innerHTML = html
+        })
+aca
+        const html = games.map(game =>{
+                return `
+                <article data-id="${game.id}"> 
+                    <h2>${game.title} </h2>
+                    <img src="${game.thumbnail}" alt="${game.title}"> </img>
+                </article>`
+            })
+           
+            document.querySelector('.games-grid').innerHTML = html
+            */
+           
+            fetch('http://localhost:2525/games')
+        .then(res =>res.json())
+        .then(games =>{
+            var html = games[0]
+             html = `<article>
+                    <a href="${html.game_url}">
+                    <img src="${html.thumbnail}" alt="${html.title}"> </img>
+                    <h2 class="title-img">${html.title} <span class="span-t">FREE </span> </h2>
+                </article>
+                </a>
+            `
+
+           var htmlDos = games[1]
+                htmlDos= `
+                <article>
+                    <a href="${htmlDos.game_url}">
+                    <img src="${htmlDos.thumbnail}" alt="${htmlDos.title}"> </img>
+                    <h2 class="title-img">${htmlDos.title} <span class="span-t">FREE </span>  </h2>
+                </article>
+                </a>
+        `
+
+        var htmlTres = games[9]
+                htmlTres= `
+                <article>
+                    <a href="${htmlTres.game_url}">
+                    <img src="${htmlTres.thumbnail}" alt="${htmlTres.title}"> </img>
+                    <h2 class="title-img">${htmlTres.title} <span class="span-t">FREE </span></h2>
+                </article>
+                </a>
+        `
+        var htmlC = games[67]
+                htmlC= `
+                <article>
+                    <a href="${htmlC.game_url}">
+                       
+                    <img src="${htmlC.thumbnail}" alt="${htmlC.title}"> </img>
+                    <h2 class="title-img">${htmlC.title} <span class="span-t">FREE </span></h2>
+                    <div class="logo"> <br> </div> <p class="p-c" >"Me gusta este juego, finalmente encontré el juego de
+                         mis sueños. No como los otros juegos que conozco, y ahora estoy 
+                         en AR 59, así que si alguien quiere ser mis amigos en línea, ¡no 
+                         dude en agregarme! aquí está mi UID 815925618, por cierto, estoy 
+                         en el servidor de Asia. Adiós!!"" </p>
+                        <div class="logo-2">
+                            <p class="p-b"><span class="user">USER: </span> -Rashinga48</p>
+                        </div>
+                </article>
+                </a>
+        `
+        var htmlC2 = games[23]
+                htmlC2= `
+                <article>
+                    <a href="${htmlC2.game_url}">
+                    <img src="${htmlC2.thumbnail}" alt="${htmlC2.title}"> </img>
+                    <h2 class="title-img">${htmlC2.title} <span class="span-t">FREE </span></h2>
+                    <div class="logo"> <br> </div> <p class="p-c" >" Competitive FPS that works great. Its different modes, fast and effective gameplay, and enjoyable graphics. " </p>
+                        <div class="logo-2">
+                            <p class="p-b"><span class="user">USER: </span> -EcoSombra748</p>
+                        </div>
+                </article>
+                </a>
+        `
+        var htmlC3 = games[39]
+                htmlC3= `
+                <article>
+                    <a href="${htmlC3.game_url}">
+                    <img src="${htmlC3.thumbnail}" alt="${htmlC3.title}"> </img>
+                    <h2 class="title-img">${htmlC3.title} <span class="span-t">FREE </span></h2>
+                    <div class="logo"> <br> </div> <p class="p-c" >" Competitive FPS that works great. Its different modes, fast and effective gameplay, and enjoyable graphics. " </p>
+                        <div class="logo-2">
+                            <p class="p-b"><span class="user">USER: </span> -EcoSombra748</p>
+                        </div>
+                </article>
+                </a>
+        `
+        var htmlC4 = games[64]
+                htmlC4= `
+                <article>
+                    <a href="${htmlC4.game_url}">
+                    <img src="${htmlC4.thumbnail}" alt="${htmlC4.title}"> </img>
+                    <h2 class="title-img">${htmlC4.title} <span class="span-t">FREE </span></h2>
+                    <div class="logo"> <br> </div> <p class="p-c" >" Competitive FPS that works great. Its different modes, fast and effective gameplay, and enjoyable graphics. " </p>
+                        <div class="logo-2">
+                            <p class="p-b"><span class="user">USER: </span> -EcoSombra748</p>
+                        </div>
+                </article>
+                </a>
+        `
+       
+            document.querySelector('.img-1').innerHTML = html
+            document.querySelector('.img-2').innerHTML = htmlDos
+            document.querySelector('.img-3').innerHTML = htmlTres
+            document.querySelector('.img-c-1').innerHTML = htmlC
+            document.querySelector('.img-c-2').innerHTML = htmlC2
+            document.querySelector('.img-c-3').innerHTML = htmlC3
+            document.querySelector('.img-c-4').innerHTML = htmlC4
+    })
+        //Popularity
+
+        fetch('http://localhost:2525/popularity?sort-by=&sort-by=popularity')
+        .then(res => res.json())
+        .then(data =>{
+            var htmlCinco = data[0]
+                htmlCinco= `
+                <article>
+                    <a href="${htmlCinco.game_url}">
+                    <img src="${htmlCinco.thumbnail}" alt="${htmlCinco.title}"> </img>
+                    <h2 class="title-img">${htmlCinco.title}<span class="span-t">FREE </span></h2> </h2>
+                </article>
+                </a>
+        `
+        var htmlCuatro = data[1]
+                htmlCuatro= `
+                <article>
+                    <a href="${htmlCuatro.game_url}">
+                    <img src="${htmlCuatro.thumbnail}" alt="${htmlCuatro.title}"> </img>
+                    <h2 class="title-img">${htmlCuatro.title}<span class="span-t">FREE </span></h2> </h2>
+                </article>
+                </a>
+        `
+        var htmlVeinte = data[2]
+                htmlVeinte= `
+                <article>
+                    <a href="${htmlVeinte.game_url}">
+                    <img src="${htmlVeinte.thumbnail}" alt="${htmlVeinte.title}"> </img>
+                    <h2 class="title-img">${htmlVeinte.title}<span class="span-t">FREE </span></h2> </h2>
+                </article>
+                </a>
+        `
+        var htmlVeinte1 = data[3]
+                htmlVeinte1= `
+                <article>
+                    <a href="${htmlVeinte1.game_url}">
+                    <img src="${htmlVeinte1.thumbnail}" alt="${htmlVeinte1.title}"> </img>
+                    <h2 class="title-img">${htmlVeinte1.title} <span class="span-t">FREE </span></h2></h2>
+                </article>
+                </a>
+        `
+        var htmlVeinte2 = data[4]
+                htmlVeinte2= `
+                <article>
+                    <a href="${htmlVeinte2.game_url}">
+                    <img src="${htmlVeinte2.thumbnail}" alt="${htmlVeinte2.title}"> </img>
+                    <h2 class="title-img">${htmlVeinte2.title}<span class="span-t">FREE </span></h2> </h2>
+                    </a>
+                </article>
+                
+        `
+        var htmlVeinte3 = data[5]
+                htmlVeinte3= `
+                <article>
+                    <a href="${htmlVeinte3.game_url}">
+                    <img src="${htmlVeinte3.thumbnail}" alt="${htmlVeinte3.title}"> </img>
+                    <h2 class="title-img">${htmlVeinte3.title}<span class="span-t">FREE </span></h2> </h2>
+                </article>
+                </a>
+        `
+        var htmlVeinte4 = data[6]
+                htmlVeinte4= `
+                <article>
+                    <a href="${htmlVeinte4.game_url}">
+                    <img src="${htmlVeinte4.thumbnail}" alt="${htmlVeinte4.title}"> </img>
+                    <h2 class="title-img">${htmlVeinte4.title}<span class="span-t">FREE </span></h2> </h2>
+                </article>
+                </a>
+        `
+        var htmlVeinte5 = data[7]
+                htmlVeinte5= `
+                <article>
+                    <a href="${htmlVeinte5.game_url}">
+                    <img src="${htmlVeinte5.thumbnail}" alt="${htmlVeinte5.title}"> </img>
+                    <h2 class="title-img">${htmlVeinte5.title}<span class="span-t">FREE </span></h2> </h2>
+                </article>
+                </a>
+        `
+        var htmlVeinte6 = data[8]
+                htmlVeinte6= `
+                <article>
+                    <a href="${htmlVeinte6.game_url}">
+                    <img src="${htmlVeinte6.thumbnail}" alt="${htmlVeinte6.title}"> </img>
+                    <h2 class="title-img">${htmlVeinte6.title} <span class="span-t">FREE </span></h2></h2>
+                </article>
+                </a>
+        `
+        var htmlVeinte7 = data[9]
+                htmlVeinte7= `
+                <article>
+                    <a href="${htmlVeinte7.game_url}">
+                    <img src="${htmlVeinte7.thumbnail}" alt="${htmlVeinte7.title}"> </img>
+                    <h2 class="title-img">${htmlVeinte7.title}<span class="span-t">FREE </span></h2> </h2>
+                </article>
+                </a>
+        `
+            document.querySelector('.img-4').innerHTML = htmlCuatro
+            document.querySelector('.img-5').innerHTML = htmlCinco
+            document.querySelector('.img-20').innerHTML = htmlVeinte
+            document.querySelector('.img-21').innerHTML = htmlVeinte1
+            document.querySelector('.img-22').innerHTML = htmlVeinte2
+            document.querySelector('.img-23').innerHTML = htmlVeinte3
+            document.querySelector('.img-24').innerHTML = htmlVeinte4
+            document.querySelector('.img-25').innerHTML = htmlVeinte5
+            document.querySelector('.img-26').innerHTML = htmlVeinte6
+            document.querySelector('.img-6').innerHTML = htmlVeinte7
+
+        })
+       
+    
+        //Release Date
+
+       
+        fetch('http://localhost:2525/release?sort-by=&sort-by=release-date')
+        .then(res =>res.json())
+        .then(data =>{
+            console.log(data)
+
+        var htmlSeis = data[0]
+                htmlSeis= `
+                <article class="article-edit">
+                    <a href="${htmlSeis.game_url}">
+                    <img src="${htmlSeis.thumbnail}" alt="${htmlSeis.title}"> </img>
+                    
+                      <h1>${htmlSeis.title}</h1><br>
+                      
+                      <p>${htmlSeis.short_description}</p>  
+                      <p class="genre">${htmlSeis.genre}</p>
+                      
+                </article>
+                </a>
+        `
+        var htmlSiete = data[1]
+                htmlSiete= `
+                 <article class="article-edit">
+                    <a href="${htmlSiete.game_url}">
+                    <img src="${htmlSiete.thumbnail}" alt="${htmlSiete.title}"> </img>
+                <h1>${htmlSiete.title}</h1>
+                      <p>${htmlSiete.short_description}</p>  
+                      <p class="genre">${htmlSiete.genre}</p>
+                </article>
+                </a>
+        `
+        var htmlOcho = data[2]
+                htmlOcho= `
+                 <article class="article-edit">
+                    <a href="${htmlOcho.game_url}">
+                    <img src="${htmlOcho.thumbnail}" alt="${htmlOcho.title}"> </img>
+               <h1>${htmlOcho.title}</h1>
+                      <p>${htmlOcho.short_description}</p>  
+                      <p class="genre">${htmlOcho.genre}</p>
+                </article>
+                </a>
+        `
+        var htmlNueve = data[3]
+                htmlNueve= `
+                <article class="article-edit">
+                    <a href="${htmlNueve.game_url}">
+                    <img src="${htmlNueve.thumbnail}" alt="${htmlNueve.title}"> </img>
+                <h1>${htmlNueve.title}</h1>
+                      <p>${htmlNueve.short_description}</p>  
+                      <p class="genre">${htmlNueve.genre}</p>
+                </article>
+                </a>
+        `
+        var htmlDiez = data[4]
+                htmlDiez= `
+                 <article class="article-edit">
+                    <a href="${htmlDiez.game_url}">
+                    <img src="${htmlDiez.thumbnail}" alt="${htmlDiez.title}"> </img>
+                  <h1>${htmlDiez.title}</h1>
+                      <p>${htmlDiez.short_description}</p> 
+                      <p class="genre">${htmlDiez.genre}</p> 
+                </article>
+                </a>
+        `
+        var htmlOnce = data[5]
+                htmlOnce= `
+                <article class="article-edit">
+                    <a href="${htmlOnce.game_url}">
+                    <img src="${htmlOnce.thumbnail}" alt="${htmlOnce.title}"> </img>
+                   <h1>${htmlOnce.title}</h1>
+                      <p>${htmlOnce.short_description}</p>  
+                      <p class="genre">${htmlOnce.genre}</p>
+                </article>
+                </a>
+        `
+        var htmlDoce = data[6]
+                htmlDoce= `
+                 <article class="article-edit">
+                    <a href="${htmlDoce.game_url}">
+                    <img src="${htmlDoce.thumbnail}" alt="${htmlDoce.title}"> </img>
+                    <h1>${htmlDoce.title}</h1>
+                      <p>${htmlDoce.short_description}</p>  
+                      <p class="genre">${htmlDoce.genre}</p>
+                </article>
+                </a>
+        `
+        document.querySelector('.img-6').innerHTML = htmlSeis
+            document.querySelector('.img-7').innerHTML = htmlSiete
+            document.querySelector('.img-8').innerHTML = htmlOcho
+            document.querySelector('.img-9').innerHTML = htmlNueve
+            document.querySelector('.img-10').innerHTML = htmlDiez
+            document.querySelector('.img-11').innerHTML = htmlOnce
+            document.querySelector('.img-12').innerHTML = htmlDoce
+    })
+                const menu = document.getElementById('menu')
+
+                menu.addEventListener('click',()=>{
+                   document.getElementById('sidebar').classList.toggle('activo')
+        
+                })
+
+       
+
+
+
+                
+    </script>
+</head>
+<body>
+    <div class="navegacion">
+    <nav>
+        <div class="movil-display">
+            <img class="img-of" src="src/freetogame-logo.png">
+            <img id="menu" src="src/menu.png" height="40px">
+        </div>
+        <div id="sidebar">
+        <div class="position">
+        <ul>
+            <li>
+                <a href="siteGames.html">Free Games</a>
+            </li>
+            <li><a href="https://www.freetogame.com/api-doc">Api</a></li>
+            <li class="svg"><a href="#"><svg  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/></svg></a></li>
+            <li><a class="search-sidebar" href="buscador.html"><img class="search-i"  src="src/search.png" width="20px" height="17px" ><span>Search</span></a></li>
+        </ul>
+        </div>
+        </div>
+        <ul class="menu-horizontal">
+            <img src="src/freetogame-logo.png">
+            <li class="li-o">
+                <a class="toggle" href="siteGames.html">Free Games</a>
+                <ul class="menu-vertical">
+                    <li><a href="mmorpg.html">MMORPG</a></li>
+                    <li><a href="shooter.html">Shooter</a></li>
+                    <li><a href="moba.html">MOBA</a></li>
+                    <li><a href="anime.html">Anime</a></li>
+                    <li><a href="BattleRoyale.html">Battle royale</a></li>
+                    <li><a href="strategy.html">Strategy</a></li>
+                    <li><a href="fantasy.html">Fantasy</a></li>
+                    <li><a href="Sci-Fi.html">Sci-Fi</a></li>
+                    <li><a href="Card.html">Card Games</a></li>
+                    <li><a href="Fighting.html">Fighting</a></li>
+                    <li><a href="Social.html">Social</a></li>
+                    <li><a href="Sports.html">Sports</a></li>
+                    <li class="last"><a  href="siteGames.html">Free-To-Play-Games</a></li>
+                </ul>
+            </li>
+            <li><a href="https://www.freetogame.com/api-doc">Api</a></li>
+            <li><a class="search" href="buscador.html"><img  src="src/search.png" height="30px" ></a></li>
+        </ul>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="info">
+            <h1>Descubre los mejores <span class="span">free-to-play</span> games!</h1>
+            <br>
+            <p>¡Sigue lo que te gusta y busca saber qué jugar a continuación! ¡Además, obtén un botín premium gratis!</p>
+            <br>
+            <br>
+            <a href="siteGames.html" class="p-info">
+                Browse Games
+            </a>
+    </div>
+</section>
+    <!--GAMES-->
+ <div id="section-games">
+    <h1>Recomendaciones personalizadas</h1>
+    <br>
+    <p class="span">By:Mauricio Teliz ❤️</p>
+    <p></p>
+
+  <div class="games-grid">
+    <div class="img-1">
+
+    </div>
+    <div class="img-2">
+
+    </div>
+    <div class="img-3">
+
+    </div>
+  </div>
+</div>
+<div class="section-games-2">
+  <div class="flex">
+    
+    
+  </div>
+  
+<div class="games-grid-2">
+<div class="grid-section-2">
+    <h1 class="flex-1">Nuevos lanzamientos</h1>
+    <div class="img-6">
+
+    </div>
+    <div class="img-7">
+
+    </div>
+    <div class="img-8">
+
+    </div>
+    <div class="img-9">
+
+    </div>
+    <div class="img-10">
+
+    </div>
+    <div class="img-11">
+
+    </div>
+    <div class="img-12">
+
+    </div>
+    <a href="#"><p class="p-games">Mas juegos➜</p></a>
+    <br>
+    <br>
+    <div class="section-community">
+        <h1>Recomendaciones de la comunidad</h1>
+
+        <div class="grid-community">
+            
+            <div class="img-c-1">
+                
+            </div>
+            <div class="img-c-2">
+
+            </div>
+            <div class="img-c-3">
+
+            </div>
+            <div class="img-c-4">
+
+            </div>           
+        </div>
+    </div>
+</div>
+<div class="grid-section">
+    <h1 class="flex-2">TOP 10 mas pouplares</h1>
+    <div class="img-5">
+   
+    </div>
+    <div class="img-4">
+   
+       </div>
+       <div class="img-6">
+   
+       </div>
+       <div class="img-20">
+   
+       </div>
+       <div class="img-21">
+   
+       </div>
+       <div class="img-22">
+   
+       </div>
+       <div class="img-23">
+   
+       </div>
+       <div class="img-23">
+   
+       </div>
+       <div class="img-24">
+   
+       </div>
+       <div class="img-25">
+   
+       </div>
+       <div class="img-26">
+   
+       </div>
+   </div>
+</div>
+
+</div>
+<footer>
+    <div class="section-f">
+        <p> @Copyright 2024 - API REST-  BY: <a href="#">Mauricio Teliz</a> - Desarrollador de software</p>
+    </div>
+</footer>
+</body>
+</html>
